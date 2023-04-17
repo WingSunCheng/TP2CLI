@@ -77,7 +77,8 @@ public class ClientCLI {
 				System.out.println("J'ai envoyé " + liner);
 
 				if (liner.equals("1")) {
-					System.out.println("Veuillez choisir la session pour laquelle vous voulez consulter la liste des cours:");
+					System.out.println("Veuillez choisir la session pour laquelle vous voulez consulter la liste des " +
+							"cours:");
 					System.out.println("1. Automne");
 					System.out.println("2. Hiver");
 					System.out.println("3. Ete");
@@ -142,13 +143,12 @@ public class ClientCLI {
 						}
 					}
 
-					//CHECKING IF INFORMATION PROPERLY WRITTEN
-
+					//Vérifier si les informations sont correctement écrites
 					String mailRegex = "[^@\\s]+@[^@\\s]+\\.\\w+";  //PIAZA NICHOLASCOOPER
 					boolean validEmail = email.matches(mailRegex);
 
 					boolean validMatricule = true;
-					if(matricule.length() != 8){
+					if(matricule.length() != 6){
 						validMatricule = false;
 					}
 					boolean validCode = true;
@@ -180,17 +180,14 @@ public class ClientCLI {
 							Socket kek = new Socket("127.0.0.1", 1337);
 							ObjectOutputStream kik = new ObjectOutputStream(kek.getOutputStream());
 							kik.writeObject(ins);
-							System.out.println("Félicitations! Inscription réussie de " + ins.getPrenom() + " au cours: " + ins.getCourse().getCode());
+							System.out.println("Félicitations! Inscription réussie de " + ins.getPrenom() +
+									" au cours: " + ins.getCourse().getCode());
 						}
 					}
 
 					System.out.println("BYE");
 					a = false;
 				}
-
-
-
-
 
 			}} catch (IOException e) {
 			throw new RuntimeException(e);
